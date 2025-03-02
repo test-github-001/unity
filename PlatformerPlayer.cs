@@ -46,8 +46,8 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
 
-        // Проверяем, если позиция игрока по оси Y меньше -20
-        if (transform.position.y < -20)
+        // Проверяем, если позиция игрока по оси Y меньше GameOverY
+        if (transform.position.y < GameOverY)
         {
             // Перезагружаем текущую сцену
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
