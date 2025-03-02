@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+{
+    public Transform player; // Ссылка на объект игрока
+    public float smoothSpeed = 0.125f; // Скорость сглаживания
+    public float offsetX = 2f; // Смещение камеры относительно игрока
+    public float offsetY = 1f; // Смещение камеры относительно игрока
+ 
+    private Vector3 offset; // Смещение камеры относительно игрока
+
+    void Start()
+    {
+        offset = new Vector3(offsetX, offsetY, -10);
+    }
+
+    // Мы используем LateUpdate, чтобы убедиться, что камера обновляется после того, как все другие объекты (включая игрока)
+    // были обновлены в текущем кадре. Это предотвращает резкие движения камеры.
+    void LateUpdate()
+    {
+        // Целевая позиция камеры
+        Vector3 desiredPosition = player.position + offset;
+        // Плавное перемещение камеры
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+    }
+}
