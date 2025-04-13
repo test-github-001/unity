@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Добавьте пуле RigitBogy2D, и выбирите в нем Body Type -> Kinematic
-// Добавьте пули коллайдер и установите галочку в [V] Is Trigger
+// Добавьте пуле коллайдер и установите галочку в [V] Is Trigger
 
 public class Bullet : MonoBehaviour
 {
