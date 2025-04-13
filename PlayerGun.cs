@@ -6,7 +6,6 @@ public class PlayerGun : MonoBehaviour
 {
     public GameObject bulletPrefab;     // Префаб пули
     public Transform firePoint;         // Точка появления пули
-    public float bulletSpeed = 10f;     // Скорость пули
 
     private SpriteRenderer spriteRenderer;
 
