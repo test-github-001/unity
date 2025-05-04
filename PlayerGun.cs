@@ -5,15 +5,8 @@ using UnityEngine;
 public class PlayerGun : MonoBehaviour
 {
     public GameObject bulletPrefab;     // Префаб пули
-    public Transform firePoint;         // Точка появления пули
 
-    private SpriteRenderer spriteRenderer;
-
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        firePoint = GetComponent<Transform>();
-    }
+    public SpriteRenderer sr;
 
     void Update()
     {
@@ -25,10 +18,10 @@ public class PlayerGun : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
         // Направление в зависимости от флипа спрайта
-        float direction = spriteRenderer.flipX ? -1f : 1f;
+        float direction = sr.flipX ? -1f : 1f;
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
