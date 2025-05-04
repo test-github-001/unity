@@ -16,7 +16,7 @@ public class KillCoroutine : MonoBehaviour
         StartCoroutine( restartGame(timeout, sceneId) );
     }
 
-    IEnumerator restartGame(int time, int id, )
+    IEnumerator restartGame(int time, int id)
     {
         yield return new WaitForSeconds(time);  
         SceneManager.LoadScene(id);
