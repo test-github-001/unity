@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FlyBG : MonoBehaviour
 {
-    // float height = 11.62f;
     public float height = 7.24f;
     float returnY;
 
