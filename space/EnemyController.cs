@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement; // Для перезагрузки сцены
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 5f; // Скорость перемещения
+    public float speed = 1f; // Скорость перемещения
     public float minX = -11f;
     public float maxX = 11f;
     public float startY = 6f;
