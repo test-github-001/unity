@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     public float speed = 3f; //переменная для хранения скорости движения
-    public float distance = 1f;//переменная для хранения дистанции между объектом и целью
+    private float distance = 1f;//переменная для хранения дистанции между объектом и целью
     public Transform target;//переменная для хранения координат цели, к которым хочет приблизиться объект
     
     void Update()
