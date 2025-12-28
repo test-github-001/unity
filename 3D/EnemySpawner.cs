@@ -1,25 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    bool isGenerate = true;
-    float fixTime = 5f;
-    float time = 30f;
+    public float addEnemyMinTime = 1f;
+    public float addEnemyMaxTime = 2f;
+    float addEnemyTimeout = 0f;
+
+    void Start()
+    {
+        addEnemyTimeout = Random.Range(addEnemyMinTime, addEnemyMaxTime);
+    }
     
-    void FixedUpdate()
+    void Update()
     {
-    if(isGenerate == true)
-    {
-    Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-    StartCoroutine(StartTimer());
-    isGenerate = false;
+        addEnemyTimeout -= Time.deltaTime;
+        if (addEnemyTimeout < 0f)
+        {
+            addEnemyTimeout = Random.Range(addEnemyMinTime, addEnemyMaxTime);
+            AddEnemy();
+        }
     }
-    }
-    IEnumerator StartTimer()
+
+    void AddEnemy()
     {
-    yield return new WaitForSeconds(time);
-    isGenerate = true;
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
     }
 }
